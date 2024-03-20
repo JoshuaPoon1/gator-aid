@@ -1,11 +1,19 @@
-import React from 'react';
 import './App.css';
+import Navbar from "./Components/Navbar";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Gator-Aid!</h1>
-    </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path='/' element={<Home />}/>
+        </Routes>
+        
+      </Router>
+      </div>
   );
 }
 
