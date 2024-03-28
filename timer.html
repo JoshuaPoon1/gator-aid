@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -24,6 +23,18 @@
         </nav>
     </header>
 
+    <div class="pomodoro-timer work-mode"> <!-- Starts on work timer -->
+        <div class="mode-display">Work</div> <!-- Displays current timer/break -->
+        <div class="timer-display">
+            <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+        </div>
+        <div class="timer-controls">
+            <button id="start-btn">Start</button>
+            <button id="pause-btn">Pause</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-  
