@@ -1,3 +1,99 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const loginBtn = document.querySelector('.login');
+    const signUpBtn = document.querySelector('.signUp');
+    const loginModal = document.getElementById('loginModal');
+    const signUpModal = document.getElementById('signUpModal');
+    const closeButtons = document.querySelectorAll('.auth-close');
+
+    const showModal = (modal) => {
+        modal.style.display = 'block';
+    };
+
+    const hideModal = (modal) => {
+        modal.style.display = 'none';
+    };
+
+    loginBtn.addEventListener('click', () => showModal(loginModal));
+    signUpBtn.addEventListener('click', () => showModal(signUpModal));
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            hideModal(loginModal);
+            hideModal(signUpModal);
+        });
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == loginModal) {
+            hideModal(loginModal);
+        }
+        if (event.target == signUpModal) {
+            hideModal(signUpModal);
+        }
+    };
+});
+
+
+
+//for mongo.
+document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    const signUpForm = document.getElementById('signUpForm');
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+        fetch('/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username, password})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                window.location.href = `/welcome.html?username=${encodeURIComponent(data.username)}&courses=${encodeURIComponent(data.courses.join(', '))}`;
+            } else {
+                console.log(data); // Handle errors or invalid login
+            }
+        });
+    });
+
+    signUpForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('signUpUsername').value;
+        const password = document.getElementById('signUpPassword').value;
+        const major = document.getElementById('major').value;
+        const year = parseInt(document.getElementById('year').value);
+        const currentCourses = document.getElementById('currentCourses').value.split(','); // Assuming courses are comma-separated
+        fetch('/signup', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username, password, major, year, currentCourses})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                window.location.href = `/welcome.html?username=${encodeURIComponent(data.username)}&courses=${encodeURIComponent(data.courses.join(', '))}`;
+            } else {
+                console.log(data); // Handle errors or failed signup
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+/*
+
 // Element references
 const startButton = document.getElementById('start-btn');
 const pauseButton = document.getElementById('pause-btn');
@@ -6,6 +102,8 @@ const minutesElement = document.getElementById('timer-minutes');
 const secondsElement = document.getElementById('timer-seconds');
 const pomodoroTimer = document.querySelector('.pomodoro-timer');
 const modeDisplay = document.querySelector('.mode-display');
+
+
 
 // Timer settings
 let mode = 'work'; // Different Timers: 'work', 'shortBreak', 'longBreak'
@@ -92,3 +190,5 @@ resetButton.addEventListener('click', resetTimer);
 
 // Initialize
 updateDisplay();
+
+*/

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+</head>
+<body>
+    <h1 id="welcome"></h1>
+    <p id="courses"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+            const courses = params.get('courses');
+            document.getElementById('welcome').textContent = `Welcome ${username}!`;
+            document.getElementById('courses').textContent = `Your courses: ${courses}`;
+        });
+    </script>
+</body>
+</html>

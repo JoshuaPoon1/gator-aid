@@ -9,6 +9,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+
+
+  
   /*
 // Create a test user
 const testUser = new User({

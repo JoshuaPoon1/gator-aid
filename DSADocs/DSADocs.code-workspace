@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../DSAImages"
+		},
+		{
+			"path": "../engStatsDocs"
+		},
+		{
+			"path": "../engStatsImages"
+		},
+		{
+			"path": "../node_modules"
+		},
+		{
+			"path": "../phyDocs"
+		},
+		{
+			"path": "../phyImages"
+		},
+		{
+			"path": "../prog2Docs"
+		},
+		{
+			"path": "../prog2Images"
+		},
+		{
+			"path": "../scripts"
+		},
+		{
+			"path": "../sweDocuments"
+		},
+		{
+			"path": "../sweImages"
+		}
+	]
+}
