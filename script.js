@@ -85,6 +85,21 @@ function resetTimer() {
     switchMode('work'); // Resets mode to default
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    var audioBtn = document.getElementById('audioToggle');
+    var myAudio = document.getElementById('myAudio');
+
+    audioBtn.addEventListener('click', function() {
+        if (myAudio.paused) {
+            myAudio.play();
+            audioBtn.textContent = 'Pause Music';
+        } else {
+            myAudio.pause();
+            audioBtn.textContent = 'Play Music';
+        }
+    });
+});
+
 // Event listeners
 startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
