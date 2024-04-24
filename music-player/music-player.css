@@ -1,0 +1,124 @@
+#music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 600px; /* Set a maximum height */
+}
+
+#toggle-music-player {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 0px; /* Add space between toggle button and player details */
+}
+
+#toggle-music-player:hover {
+    background-color: #277a40;
+}
+
+.hide {
+    display: none;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.now-playing {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.track-art {
+    width: 180px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+
+.track-details {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.track-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.track-artist {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px; /* Add or adjust padding for internal spacing */
+}
+
+.details, .buttons, .slider_container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 350px;
+}
+
+.track-art {
+    margin: 10px; /* Reduce margin for a more compact layout */
+    height: 180px; /* Reduce size for a more compact layout */
+    width: 180px; /* Reduce size for a more compact layout */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15%;
+}
+
+/* Update font sizes to be proportional to the new layout */
+.now-playing,
+.track-name,
+.track-artist {
+    text-align: center; /* Ensure text is centered */
+    margin: 5px 0; /* Adjust margin for spacing */
+}
+
+.now-playing { font-size: 0.8rem; }
+.track-name { font-size: 2rem; }
+.track-artist { font-size: 1.2rem; }
+
+.buttons {
+    display: flex;
+    justify-content: space-around; /* Evenly distribute buttons */
+    width: 100%; /* Ensure full width */
+    margin-top: 10px; /* Add some space above the buttons */
+}
+
+.playpause-track, .prev-track, .next-track {
+    padding: 15px; /* Adjust padding for a more compact layout */
+    opacity: 0.8;
+    transition: opacity .2s;
+}
+
+/* Size adjustments for sliders */
+.seek_slider, .volume_slider {
+    width: 90%; /* Increase width for better usability */
+    margin: 0 5%; /* Adjust margins to center the sliders */
+}
+
+.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
+    width: 12px; /* Slightly reduce thumb size */
+    height: 12px; /* Slightly reduce thumb size */
+}

@@ -6,8 +6,11 @@
     <title>Gator-Aid</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="task-manager/task-manager.css">
+    <link rel="stylesheet" href="music-player/music-player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <script src="script.js"></script>
     <script src="task-manager/task-manager.js"></script>
+    <script src="music-player/music-player.js"></script>
 </head>
 <body>
     <header>
@@ -21,10 +24,6 @@
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="timer.html">Timer</a></li>
                 <li><a href="mind-breathing-game/mind-breathing-game.html" class="mindgame-btn">Stressed? Click here!</a></li>
-                <li><a class="music-btn" id="audioToggle">Play Music</a></li>
-                <audio id="myAudio" loop>
-                    <source src="music.mp3" type="audio/mp3">
-                </audio>
                 <li><a href="login.html" class="login-btn" id="loginBtn">Login</a></li>
             </ul>
         </nav>
@@ -65,19 +64,29 @@
 
     <!-- Placeholder for the Task Manager -->
     <div id="task-manager"></div>
+    <div id="music-player"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var container = document.getElementById('task-manager');
-            fetch('task-manager/task-manager.html') // Make sure the path is correct
+            var taskContainer = document.getElementById('task-manager');
+            fetch('task-manager/task-manager.html')
                 .then(response => response.text())
                 .then(html => {
-                    container.innerHTML = html;
-                    initializeTaskManager(); // Initialize the task manager after the HTML is loaded
+                    taskContainer.innerHTML = html;
+                    initializeTaskManager(); // Call this function after the content is loaded
                 })
                 .catch(error => console.error('Error loading the task manager:', error));
+
+            var musicContainer = document.getElementById('music-player'); // Ensure this ID is correct and unique
+            fetch('music-player/music-player.html')
+                .then(response => response.text())
+                .then(html => {
+                    musicContainer.innerHTML = html;
+                    initializeMusicPlayer(); // Call this function after the content is loaded
+                })
+                .catch(error => console.error('Error loading the music player:', error));
         });
-    </script>        
+    </script>
 
 </body>
 </html>

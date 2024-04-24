@@ -1,7 +1,7 @@
 #task-manager {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -116,7 +116,7 @@
   .group-header {
     font-weight: bold;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 16px;
     color: #333333;
   }
   
