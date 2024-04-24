@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Breathing Game</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="mind-breathing-game.css">
+    <link rel="stylesheet" href="../task-manager/task-manager.css">
+    <script src="../script.js"></script>
+    <script src="mind-breathing-game.js"></script>
+    <script src="../task-manager/task-manager.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../Gator-Aid-Logo.png" alt="Gator-Aid-Logo" class="logo">
+            <span class="website-name">Gator-Aid</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../courses.html">Courses</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="../timer.html">Timer</a></li>
+                <li><a class="music-btn" id="audioToggle">Play Music</a></li>
+                <audio id="myAudio" loop>
+                    <source src="../music.mp3" type="audio/mp3">
+                </audio>
+                <li><a href="../login.html" class="login-btn" id="loginBtn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <body class="mindful-breathing-body">
+        <!-- ... -->
+        <div id="game-container" class="mindful-breathing-container">
+          <div id="instructions" class="mindful-breathing-instructions">
+            <!-- ... -->
+            <h2>Instructions</h2>
+            <p>Welcome to the Mindful Breathing Exercise Game.</p>
+            <p>Follow the prompts to relax and reduce stress.</p>
+            <p>Click the "Start" button to begin.</p>
+          </div>
+          <div id="breathing-circle" class="mindful-breathing-circle"></div>
+          <button id="start-button" class="mindful-breathing-start-button">Start</button>
+        </div>
+        <!-- ... -->
+      </body>
+
+    <script src="mind-breathing-game.js"></script>
+
+    <!-- Placeholder for the Task Manager -->
+    <div id="task-manager"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var container = document.getElementById('task-manager');
+            fetch('../task-manager/task-manager.html') // Make sure the path is correct
+                .then(response => response.text())
+                .then(html => {
+                    container.innerHTML = html;
+                    initializeTaskManager(); // Initialize the task manager after the HTML is loaded
+                })
+                .catch(error => console.error('Error loading the task manager:', error));
+        });
+    </script>        
+
+</body>
+</html>

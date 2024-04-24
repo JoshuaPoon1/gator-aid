@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+#game-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#instructions {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#breathing-circle {
+    width: 200px;
+    height: 200px;
+    background-color: #89cff0;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: none; /* Initially hidden */
+    transition: width 1s ease-in-out, height 1s ease-in-out; /* Transition for width and height changes */
+}
+
+#start-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Add transition for interactive feedback */
+    outline: none; /* Remove default focus outline */
+}
+
+#start-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Grow slightly on hover */
+}
+
+#start-button:active {
+    transform: scale(0.95); /* Shrink slightly on click */
+}
