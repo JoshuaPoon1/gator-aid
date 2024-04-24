@@ -14,7 +14,7 @@ let track_list = [
     },
     {
         name: "Glimpse of Us",
-        artist: "XXXTentacion",
+        artist: "Joji",
         path: "/music-player/song-files/Glimpse Of Us.mp3",
         image: "https://upload.wikimedia.org/wikipedia/en/4/4a/Joji_-_Glimpse_of_Us.png",
     },
@@ -29,11 +29,31 @@ let track_list = [
         artist: "The Neighbourhood",
         path: "/music-player/song-files/Sweater Weather.mp3",
         image: "https://upload.wikimedia.org/wikipedia/en/6/6c/Sweater_Weather_%28The_Neighborhood_single_cover%29.jpg",
+    },
+    {
+        name: "Redbone",
+        artist: "Childish Gambino", 
+        path: "/music-player/song-files/Redbone.mp3",
+        image: "https://i.ytimg.com/vi/Kp7eSUU9oy8/maxresdefault.jpg",
+    },
+    {
+        name: "Save Your Tears",
+        artist: "The Weeknd",
+        path: "/music-player/song-files/Save Your Tears.mp3",
+        image: "https://i.ytimg.com/vi/u6lihZAcy4s/maxresdefault.jpg",
+    },
+    {
+        name: "The Less I Know The Better",
+        artist: "Tame Impala",
+        path: "/music-player/song-files/The Less I Know The Better.mp3",
+        image: "https://i1.sndcdn.com/artworks-000216187702-7ql0sl-t500x500.jpg",
     }
 ];
 
 let now_playing, track_art, track_name, track_artist, playpause_btn, next_btn, prev_btn,
     seek_slider, volume_slider, curr_time, total_duration, track_index, isPlaying, updateTimer, curr_track;
+
+let history = []; // Array to store history of played tracks
 
 function initializeMusicPlayer() {
     var toggleButton = document.getElementById('toggle-music-player');
@@ -92,6 +112,11 @@ function initializeMusicPlayer() {
     curr_track.addEventListener('timeupdate', seekUpdate);
     curr_track.addEventListener('ended', nextTrack);
 
+    // Call loadPlayerState when the DOM content is loaded
+    document.addEventListener('DOMContentLoaded', loadPlayerState);
+
+    // Save the player state whenever it changes
+    window.addEventListener('beforeunload', savePlayerState);
 }
 
 function loadTrack(index) {
@@ -146,10 +171,21 @@ function pauseTrack() {
 }
 
 function nextTrack() {
-    if (track_index < track_list.length - 1)
-        track_index += 1;
-    else 
-        track_index = 0;
+    let randomIndex;
+    // Generate a random index that is not in the history
+    do {
+        randomIndex = Math.floor(Math.random() * track_list.length);
+    } while (history.includes(randomIndex));
+
+    // Add the current track index to history
+    history.push(track_index);
+
+    // If history size exceeds or equals the track list size, reset history
+    if (history.length >= track_list.length) {
+        history = [];
+    }
+
+    track_index = randomIndex;
     loadTrack(track_index);
     playTrack();
 }
@@ -204,5 +240,50 @@ function random_bg_color() {
     let blue = Math.floor(Math.random() * 192) + 64;
     document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
+
+// Function to save the current state of the music player to localStorage
+function savePlayerState() {
+    localStorage.setItem('musicPlayerState', JSON.stringify({
+        isPlaying: isPlaying,
+        trackIndex: track_index,
+        currentTime: curr_track.currentTime
+    }));
+}
+
+// Function to load the saved state of the music player from localStorage
+function loadPlayerState() {
+    let savedState = localStorage.getItem('musicPlayerState');
+    if (savedState) {
+        savedState = JSON.parse(savedState);
+        isPlaying = savedState.isPlaying;
+        track_index = savedState.trackIndex;
+        loadTrack(track_index);
+        if (isPlaying) {
+            playTrack();
+        }
+        // Set the playback time if available
+        if (savedState.currentTime !== undefined) {
+            curr_track.currentTime = savedState.currentTime;
+        }
+    }
+}
+
+// Event listener for play/pause button clicks
+playpause_btn.addEventListener('click', function() {
+    if (!isPlaying) {
+        playTrack();
+    } else {
+        pauseTrack();
+    }
+    // Save player state whenever play/pause button is clicked
+    savePlayerState();
+});
+
+// Event listener for track changes
+curr_track.addEventListener('ended', function() {
+    nextTrack();
+    // Save player state whenever track changes
+    savePlayerState();
+});
 
 document.addEventListener('DOMContentLoaded', initializeMusicPlayer);

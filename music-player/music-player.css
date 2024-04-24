@@ -12,17 +12,18 @@
 }
 
 #toggle-music-player {
-    background-color: #4caf50;
+    background-color: #ff7f00;
     color: white;
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
     cursor: pointer;
     margin-bottom: 0px; /* Add space between toggle button and player details */
+    transition: background-color 0.3s ease 0.2s; /* Add transition */
 }
 
 #toggle-music-player:hover {
-    background-color: #277a40;
+    background-color: #cc6600;
 }
 
 .hide {
