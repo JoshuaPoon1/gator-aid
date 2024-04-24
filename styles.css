@@ -69,12 +69,13 @@ nav ul li a:hover, nav ul li a:focus {
 
 nav ul li a.music-btn, nav ul li a.mindgame-btn, nav ul li a.login-btn {
     color: white;
-    background-color: #4CAF50; /* Unified green background for special buttons */
+    background-color: #e6a037; /* Unified green background for special buttons */
     transition: background-color 0.3s ease;
 }
 
 nav ul li a.music-btn:hover, nav ul li a.mindgame-btn:hover, nav ul li a.login-btn:hover {
-    background-color: #388e3c; /* Darker green on hover */
+    background-color: #ef9a09; /* Darker green on hover */
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.75);
 }
 
 .btn {
