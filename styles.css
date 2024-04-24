@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
 html, body {
     width: 100%;
     height: 100%; /* Ensures they take up at least the full height of the viewport */
@@ -11,32 +13,38 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #f3f3f3;
+    padding: 20px 40px;
+    background: #f9f9f9; /* Softer, solid color background */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .logo {
-    width: 100px; 
-    height: auto; 
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
 
 .website-name {
-    font-family: Georgia, 'Times New Roman', serif; /* Using Georgia for a fancy look */
-    color: #e76000; /* Light orange color, as you mentioned it works */
-    font-size: 30px; /* Larger size for visibility */
-    font-weight: bold; /* Bolder text for impact */
-    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    font-family: 'Open Sans', sans-serif;
+    color: #333; /* Dark gray for a more subdued look */
+    font-size: 24px;
+    font-weight: 600;
     margin-left: 10px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -48,37 +56,39 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #333;
-    transition: all 0.3s ease; 
+    padding: 8px 16px;
+    border-radius: 5px;
+    background: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-    box-shadow: none;
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #e0e0e0; /* Light gray background on hover */
+    color: #000; /* Black text color on hover */
 }
 
-nav ul li a.music-btn {
-    background-color: darkorange;
+nav ul li a.music-btn, nav ul li a.login-btn {
     color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
+    background-color: #4CAF50; /* Unified green background for special buttons */
+    transition: background-color 0.3s ease;
 }
 
-nav ul li a.login-btn {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
+nav ul li a.music-btn:hover, nav ul li a.login-btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
 }
 
 .btn {
-    background-color: green;
+    background-color: #2196f3; /* Consistent blue button */
     color: white;
+    border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    box-shadow: 0 0 10px purple;
+    background-color: #1e88e5; /* Slightly darker blue on hover */
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.75); /* Subtle glow effect */
 }
 
 /* Modal styles */
@@ -321,19 +331,6 @@ iframe {
     margin: 10vh auto; /* Vertically centers with top margin, auto centers horizontally */
     border: none; /* Optional: removes the border */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Authentication Modal styles */
 .auth-modal {

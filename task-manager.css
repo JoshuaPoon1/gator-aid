@@ -1,0 +1,70 @@
+#task-manager {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 1000; /* High z-index to ensure it's above other elements */
+}
+
+#toggle-task-manager {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Added space between button and task list */
+}
+
+#toggle-task-manager:hover {
+    background-color: #277a40; /* Darker green on hover */
+}
+
+#task-list-container.hide {
+    display: none;
+}
+
+#task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#task-list li {
+    background: #f7f7f7; /* A softer off-white background */
+    margin-bottom: 8px; /* Slightly reduce margin for a tighter list */
+    padding: 12px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #eaeaea; /* Softer border color */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Adding transition for interactive feedback */
+}
+
+#task-list li button {
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#new-task-input, #add-task-btn {
+     /* Full width minus padding */
+    margin: 5px 0;
+    padding: 8px;
+}
+
+#new-task-input {
+    width: calc(100% - 20px);
+}
+
+#add-task-btn {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
