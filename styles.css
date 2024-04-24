@@ -1,5 +1,9 @@
-body {
+html, body {
+    width: 100%;
+    height: 100%; /* Ensures they take up at least the full height of the viewport */
     margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
     font-family: Arial, sans-serif;
 }
 
@@ -368,3 +372,102 @@ iframe {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* --- BEGIN: LOGIN PAGE STYLE --- */
+/* Login container central alignment */
+.login-background {
+    background-image: url('login-background.webp'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
+.background-overlay {
+    position: absolute; /* Changed from relative to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.50); /* Black overlay with 50% opacity */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Reduced from 100vh to 60vh */
+    padding-top: 10px; /* Reduced padding at the top */
+    padding-bottom: 20px; /* Ensuring some padding remains at the bottom */
+}
+
+/* Styling for the login box */
+.login-box {
+    background: white;
+    padding: 45px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Enhances the login form heading */
+.login-box h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styles for input fields */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Redefining button for a more modern look */
+.btn {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Additional hover effects and transitions for links */
+nav ul li a:hover {
+    color: #0174DF;
+}
+
+/* Ensure that the input and button elements are visually appealing */
+.input-group input:focus, .btn:focus {
+    outline: none; /* Removes the outline */
+    border-color: #4CAF50; /* Adds a green border on focus */
+}
+
+/* Responsive adjustments for different devices */
+@media (max-width: 600px) {
+    .login-box {
+        padding: 20px;
+    }
+}
+
+/* Ensure navigation links are clearly visible against background */
+nav ul li a {
+    color: #333; /* Ensuring visibility on lighter backgrounds */
+}
+
+/* --- END: LOGIN PAGE STYLE --- */
